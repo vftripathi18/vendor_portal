@@ -1,67 +1,79 @@
-$(document).ready(function () {
+(function () {
 
     function add_supplier_registration_button() {
 
-        // Only run on Frappe login page
+        // Only on login page
         if (window.location.hash !== "#login") {
             return;
         }
 
-        // Prevent duplicate button
-        if ($(".supplier-registration-btn").length) {
+        // Already added
+        if (document.getElementById("supplier-registration-button")) {
             return;
         }
 
-        // Find login card
-        const login_container = $(".for-login");
+        // Find the login form/card
+        const login_container = document.querySelector(".for-login");
 
-        if (!login_container.length) {
+        if (!login_container) {
+            return;
+        }
+
+        // Find the existing login actions area
+        const actions =
+            login_container.querySelector(".page-card-actions");
+
+        if (!actions) {
             return;
         }
 
         // Create button
-        const button = $(`
-            <a
-                href="/supplier-registration"
-                class="btn btn-default btn-block supplier-registration-btn"
-            >
-                Supplier Registration
-            </a>
-        `);
+        const button = document.createElement("a");
 
-        // Match spacing with existing login buttons
-        button.css({
-            "margin-top": "12px"
-        });
+        button.id = "supplier-registration-button";
 
-        // Add after Login with Email Link
-        const email_link_button = login_container.find(
-            ".btn-login-with-email-link"
-        );
+        button.href = "/supplier-registration";
 
-        if (email_link_button.length) {
-            email_link_button.after(button);
-        } else {
-            login_container.append(button);
-        }
+        button.className =
+            "btn btn-default btn-block supplier-registration-btn";
+
+        button.innerText = "Supplier Registration";
+
+        button.style.marginTop = "12px";
+
+        // Add button
+        actions.appendChild(button);
     }
 
-    // Initial load
+    // Try immediately
     add_supplier_registration_button();
 
-    // Frappe uses hash-based routing
-    $(window).on("hashchange", function () {
-        setTimeout(function () {
-            add_supplier_registration_button();
-        }, 300);
+    // Try after page loads
+    window.addEventListener("load", function () {
+        add_supplier_registration_button();
     });
 
-    // Login page can render dynamically
-    setTimeout(function () {
-        add_supplier_registration_button();
-    }, 1000);
+    // Frappe login uses hash routing
+    window.addEventListener("hashchange", function () {
 
-    setTimeout(function () {
+        setTimeout(function () {
+            add_supplier_registration_button();
+        }, 100);
+
+        setTimeout(function () {
+            add_supplier_registration_button();
+        }, 500);
+
+    });
+
+    // Watch for Frappe dynamically creating login elements
+    const observer = new MutationObserver(function () {
         add_supplier_registration_button();
-    }, 2000);
-});
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+})();

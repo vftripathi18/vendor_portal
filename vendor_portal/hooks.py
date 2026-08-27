@@ -6,9 +6,28 @@ app_email = "mstripathi100@gmail.com"
 app_license = "mit"
 
 web_include_js = [
-    "/assets/vendor_portal/js/login.js"
+    "assets/vendor_portal/js/login.js"
 ]
-
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [
+            ["dt", "in", ["Supplier", "Supplier Registration"]]
+        ]
+    },
+    {
+        "dt": "Property Setter",
+        "filters": [
+            ["doc_type", "in", ["Supplier", "Supplier Registration"]]
+        ]
+    },
+    {
+        "dt": "Workflow",
+        "filters": [
+            ["document_type", "=", "Supplier Registration"]
+        ]
+    }
+]
 # Apps
 # ------------------
 
