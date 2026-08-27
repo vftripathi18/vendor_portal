@@ -5,6 +5,10 @@ app_description = "Vendor registration and supplier onboarding portal"
 app_email = "mstripathi100@gmail.com"
 app_license = "mit"
 
+web_include_js = [
+    "/assets/vendor_portal/js/login.js"
+]
+
 # Apps
 # ------------------
 

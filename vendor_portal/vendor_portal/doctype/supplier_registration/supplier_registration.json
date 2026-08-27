@@ -1,0 +1,337 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-08-24 15:20:13.207650",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_xfas",
+  "amended_from",
+  "name_of_the_company",
+  "gstin_no",
+  "gst_register_mail_id",
+  "whatsapp_no",
+  "tax_category",
+  "gst_category",
+  "column_break_mysg",
+  "gst_register_mobile_no",
+  "msme_no",
+  "tan_no",
+  "pan_no",
+  "section_break_tinj",
+  "address_line_1",
+  "address_line_2",
+  "citytown",
+  "stateprovince",
+  "country",
+  "area",
+  "postal_code",
+  "column_break_cdds",
+  "email_address",
+  "phone_no",
+  "section_break_vvhy",
+  "contact_person_name",
+  "designation",
+  "email_id",
+  "department",
+  "column_break_jyct",
+  "mobile_no",
+  "landline_no",
+  "bank_details_section",
+  "account_type",
+  "bank_name",
+  "account_holder_name",
+  "account_number",
+  "ifsc_code",
+  "i",
+  "column_break_zuov",
+  "remarks",
+  "registration_status",
+  "supplier",
+  "contact",
+  "address",
+  "bank_account",
+  "user"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_xfas",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Supplier Registration",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "name_of_the_company",
+   "fieldtype": "Data",
+   "label": "Name of the Company"
+  },
+  {
+   "fieldname": "gstin_no",
+   "fieldtype": "Data",
+   "label": "GSTIN NO."
+  },
+  {
+   "fieldname": "gst_register_mail_id",
+   "fieldtype": "Data",
+   "label": "GST Register Mail id"
+  },
+  {
+   "fieldname": "whatsapp_no",
+   "fieldtype": "Data",
+   "label": "Whatsapp No"
+  },
+  {
+   "fieldname": "tax_category",
+   "fieldtype": "Link",
+   "label": "Tax Category",
+   "options": "Tax Category"
+  },
+  {
+   "default": "Unregistered",
+   "fieldname": "gst_category",
+   "fieldtype": "Select",
+   "label": "GST Category",
+   "options": "Registered Regular\nRegistered Composition\nUnregistered\nSEZ\nOverseas\nDeemed Export\nUIN Holders\nTax Deductor\nTax Collector\nInput Service Distributor"
+  },
+  {
+   "fieldname": "column_break_mysg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gst_register_mobile_no",
+   "fieldtype": "Data",
+   "label": "GST Register Mobile No."
+  },
+  {
+   "fieldname": "msme_no",
+   "fieldtype": "Data",
+   "label": "MSME No."
+  },
+  {
+   "fieldname": "tan_no",
+   "fieldtype": "Data",
+   "label": "TAN No."
+  },
+  {
+   "fieldname": "pan_no",
+   "fieldtype": "Data",
+   "label": "PAN No."
+  },
+  {
+   "fieldname": "section_break_tinj",
+   "fieldtype": "Section Break",
+   "label": "Addresss Details"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "citytown",
+   "fieldtype": "Data",
+   "label": "City/Town "
+  },
+  {
+   "fieldname": "stateprovince",
+   "fieldtype": "Data",
+   "label": "State/Province",
+   "options": "Andaman and Nicobar Islands\nAndhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChandigarh\nChhattisgarh\nDadra and Nagar Haveli and Daman and Diu\nDelhi\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJammu and Kashmir\nJharkhand\nKarnataka\nKerala\nLadakh\nLakshadweep Islands\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nOther Territory\nPuducherry\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal"
+  },
+  {
+   "default": "India",
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country ",
+   "options": "Country"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Data",
+   "label": "Area"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "column_break_cdds",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone no"
+  },
+  {
+   "fieldname": "section_break_vvhy",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "contact_person_name",
+   "fieldtype": "Data",
+   "label": "Contact Person Name"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "column_break_jyct",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No."
+  },
+  {
+   "fieldname": "landline_no",
+   "fieldtype": "Data",
+   "label": "Landline no."
+  },
+  {
+   "fieldname": "bank_details_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Details"
+  },
+  {
+   "fieldname": "account_type",
+   "fieldtype": "Link",
+   "label": "Account Type",
+   "options": "Bank Account Type"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Bank"
+  },
+  {
+   "fieldname": "account_holder_name",
+   "fieldtype": "Data",
+   "label": "Account Holder Name"
+  },
+  {
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code"
+  },
+  {
+   "default": "0",
+   "fieldname": "i",
+   "fieldtype": "Check",
+   "label": "I "
+  },
+  {
+   "fieldname": "column_break_zuov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Long Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "registration_status",
+   "fieldtype": "Select",
+   "label": "Registration Status",
+   "options": "Pending\nUnder Review\nApproved\nRejected\nSupplier Created"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Bank Account"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-08-25 16:35:22.605317",
+ "modified_by": "Administrator",
+ "module": "Vendor Portal",
+ "name": "Supplier Registration",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
