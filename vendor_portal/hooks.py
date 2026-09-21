@@ -28,6 +28,9 @@ fixtures = [
         ]
     }
 ]
+app_include_js = [
+    "/assets/vendor_portal/js/help_tutorial.js"
+]
 # Apps
 # ------------------
 
