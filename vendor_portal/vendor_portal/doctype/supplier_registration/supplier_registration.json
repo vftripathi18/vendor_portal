@@ -44,6 +44,7 @@
   "account_number",
   "ifsc_code",
   "i",
+  "terms_pdf",
   "column_break_zuov",
   "remarks",
   "registration_status",
@@ -51,12 +52,21 @@
   "contact",
   "address",
   "bank_account",
-  "user"
+  "user",
+  "terms_tab",
+  "terms_section",
+  "terms_accepted_on",
+  "terms_rejected_on",
+  "terms_rejection_reason",
+  "terms_version",
+  "terms_token",
+  "terms_email_sent"
  ],
  "fields": [
   {
    "fieldname": "section_break_xfas",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Details"
   },
   {
    "fieldname": "amended_from",
@@ -303,14 +313,65 @@
    "fieldtype": "Link",
    "label": "User",
    "options": "User"
+  },
+  {
+   "fieldname": "terms_tab",
+   "fieldtype": "Tab Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "terms_accepted_on",
+   "fieldtype": "Datetime",
+   "label": "Terms Accepted On"
+  },
+  {
+   "fieldname": "terms_rejected_on",
+   "fieldtype": "Datetime",
+   "label": "Terms Rejected On"
+  },
+  {
+   "fieldname": "terms_rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Terms Rejection Reason"
+  },
+  {
+   "fieldname": "terms_version",
+   "fieldtype": "Data",
+   "label": "Terms Version"
+  },
+  {
+   "fieldname": "terms_token",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Terms Token"
+  },
+  {
+   "default": "0",
+   "fieldname": "terms_email_sent",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Terms Email Sent"
+  },
+  {
+   "description": "Upload the Terms & Conditions PDF",
+   "fieldname": "terms_pdf",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Terms & Conditions PDF",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-08-25 16:35:22.605317",
- "modified_by": "Administrator",
+ "modified": "2026-09-24 16:32:11.391010",
+ "modified_by": "mstripathi100@gmail.com",
  "module": "Vendor Portal",
  "name": "Supplier Registration",
  "owner": "Administrator",

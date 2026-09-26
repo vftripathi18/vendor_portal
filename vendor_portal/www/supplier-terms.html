@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Supplier Terms & Conditions | Vone8 Infotech</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            background: #f6f8fb;
+            color: #172033;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 35px 18px 50px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            background: #ffffff;
+            border: 1px solid #e6eaf0;
+            border-radius: 18px;
+            padding: 22px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+            margin-bottom: 22px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-text h1 {
+            margin: 0;
+            font-size: 19px;
+            font-weight: 700;
+            color: #101828;
+        }
+
+        .brand-text p {
+            margin: 4px 0 0;
+            font-size: 13px;
+            color: #667085;
+        }
+
+        .secure-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            padding: 8px 13px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .secure-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+        }
+
+        /* =====================================================
+           MAIN CARD
+        ===================================================== */
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e6eaf0;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 32px 34px 26px;
+            border-bottom: 1px solid #edf0f4;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 28px;
+            line-height: 1.25;
+            color: #101828;
+        }
+
+        .card-header p {
+            margin: 10px 0 0;
+            color: #667085;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* =====================================================
+           SUPPLIER INFORMATION
+        ===================================================== */
+
+        .supplier-section {
+            padding: 26px 34px;
+            border-bottom: 1px solid #edf0f4;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #101828;
+            margin-bottom: 14px;
+        }
+
+        .supplier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .info-box {
+            background: #f8fafc;
+            border: 1px solid #e9edf2;
+            border-radius: 12px;
+            padding: 15px 16px;
+        }
+
+        .info-label {
+            font-size: 11px;
+            color: #667085;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: #1d2939;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        /* =====================================================
+           PDF SECTION
+        ===================================================== */
+
+        .terms-section {
+            padding: 26px 34px 32px;
+        }
+
+        .terms-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 14px;
+        }
+
+        .terms-toolbar-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #101828;
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .pdf-action {
+            text-decoration: none;
+            border: 1px solid #d0d5dd;
+            color: #344054;
+            background: #ffffff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .pdf-action:hover {
+            background: #f8fafc;
+            border-color: #98a2b3;
+        }
+
+        .pdf-wrapper {
+            width: 100%;
+            height: 700px;
+            border: 1px solid #dfe3e8;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f1f3f6;
+        }
+
+        .pdf-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .pdf-loading {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667085;
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           ACTION AREA
+        ===================================================== */
+
+        .action-section {
+            border-top: 1px solid #edf0f4;
+            background: #fbfcfe;
+            padding: 25px 34px 30px;
+        }
+
+        .action-note {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #667085;
+            margin-bottom: 18px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 10px;
+            padding: 13px 22px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition:
+                transform 0.15s ease,
+                opacity 0.15s ease,
+                box-shadow 0.15s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.55;
+            transform: none;
+        }
+
+        .btn-accept {
+            color: #ffffff;
+            background: #2563eb;
+            box-shadow: 0 7px 18px rgba(37, 99, 235, 0.22);
+        }
+
+        .btn-accept:hover {
+            box-shadow: 0 9px 22px rgba(37, 99, 235, 0.30);
+        }
+
+        .btn-reject {
+            color: #b42318;
+            background: #ffffff;
+            border: 1px solid #fecdca;
+        }
+
+        .btn-reject:hover {
+            background: #fff5f4;
+        }
+
+        /* =====================================================
+           REJECT BOX
+        ===================================================== */
+
+        .reject-box {
+            display: none;
+            margin-top: 18px;
+            padding: 18px;
+            border: 1px solid #fecdca;
+            background: #fffafa;
+            border-radius: 12px;
+        }
+
+        .reject-box.show {
+            display: block;
+        }
+
+        .reject-box label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #344054;
+            margin-bottom: 8px;
+        }
+
+        .reject-box textarea {
+            width: 100%;
+            min-height: 100px;
+            resize: vertical;
+            border: 1px solid #d0d5dd;
+            border-radius: 9px;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .reject-box textarea:focus {
+            border-color: #f04438;
+            box-shadow: 0 0 0 3px rgba(240, 68, 56, 0.08);
+        }
+
+        .reject-actions {
+            margin-top: 12px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .btn-confirm-reject {
+            background: #d92d20;
+            color: white;
+        }
+
+        .btn-cancel {
+            background: white;
+            border: 1px solid #d0d5dd;
+            color: #344054;
+        }
+
+        /* =====================================================
+           LOADING
+        ===================================================== */
+
+        .loading {
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid #e5e7eb;
+            border-top-color: #2563eb;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 14px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           RESULT
+        ===================================================== */
+
+        .result {
+            display: none;
+            text-align: center;
+            padding: 70px 30px;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+        }
+
+        .result.success .result-icon {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .result.error .result-icon {
+            background: #fee4e2;
+            color: #d92d20;
+        }
+
+        .result h3 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: #101828;
+        }
+
+        .result p {
+            margin: 0 auto;
+            max-width: 560px;
+            color: #667085;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           ERROR
+        ===================================================== */
+
+        .error-message {
+            display: none;
+            margin: 18px 34px 0;
+            padding: 13px 15px;
+            background: #fff5f4;
+            border: 1px solid #fecdca;
+            color: #b42318;
+            border-radius: 9px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            text-align: center;
+            padding: 22px 10px 0;
+            color: #98a2b3;
+            font-size: 12px;
+        }
+
+        .footer strong {
+            color: #667085;
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .page {
+                padding: 15px 10px 30px;
+            }
+
+            .header {
+                padding: 17px;
+                border-radius: 14px;
+                align-items: flex-start;
+            }
+
+            .brand img {
+                height: 40px;
+            }
+
+            .brand-text h1 {
+                font-size: 16px;
+            }
+
+            .brand-text p {
+                font-size: 11px;
+            }
+
+            .secure-badge {
+                font-size: 10px;
+                padding: 6px 9px;
+            }
+
+            .card {
+                border-radius: 15px;
+            }
+
+            .card-header {
+                padding: 24px 20px 20px;
+            }
+
+            .card-header h2 {
+                font-size: 23px;
+            }
+
+            .supplier-section,
+            .terms-section {
+                padding: 20px;
+            }
+
+            .supplier-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .terms-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pdf-actions {
+                width: 100%;
+            }
+
+            .pdf-action {
+                flex: 1;
+                text-align: center;
+            }
+
+            .pdf-wrapper {
+                height: 560px;
+            }
+
+            .action-section {
+                padding: 20px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .error-message {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="container">
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="header">
+
+            <div class="brand">
+
+                <img
+                    src="/files/company%20logo.png"
+                    alt="Vone8 Infotech"
+                >
+
+                <div class="brand-text">
+                    <h1>Vone8 Infotech</h1>
+                    <p>Supplier Onboarding</p>
+                </div>
+
+            </div>
+
+            <div class="secure-badge">
+                <span class="secure-dot"></span>
+                Secure Document Review
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             MAIN CARD
+        ================================================== -->
+
+        <main class="card">
+
+            <!-- LOADING -->
+
+            <div id="loadingState" class="loading">
+
+                <div class="spinner"></div>
+
+                <div class="loading-text">
+                    Loading your Terms & Conditions...
+                </div>
+
+            </div>
+
+
+            <!-- ERROR -->
+
+            <div id="errorMessage" class="error-message"></div>
+
+
+            <!-- CONTENT -->
+
+            <div id="contentState" style="display:none;">
+
+                <section class="card-header">
+
+                    <div class="eyebrow">
+                        Supplier Agreement
+                    </div>
+
+                    <h2>
+                        Terms & Conditions
+                    </h2>
+
+                    <p>
+                        Please review the Terms & Conditions document
+                        carefully before accepting the supplier
+                        onboarding agreement.
+                    </p>
+
+                </section>
+
+
+                <!-- SUPPLIER INFORMATION -->
+
+                <section class="supplier-section">
+
+                    <div class="section-title">
+                        Supplier Information
+                    </div>
+
+                    <div class="supplier-grid">
+
+                        <div class="info-box">
+
+                            <div class="info-label">
+                                Company
+                            </div>
+
+                            <div
+                                id="companyName"
+                                class="info-value"
+                            >
+                                -
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <div class="info-label">
+                                Contact Person
+                            </div>
+
+                            <div
+                                id="contactPerson"
+                                class="info-value"
+                            >
+                                -
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <div class="info-label">
+                                Email
+                            </div>
+
+                            <div
+                                id="email"
+                                class="info-value"
+                            >
+                                -
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PDF -->
+
+                <section class="terms-section">
+
+                    <div class="terms-toolbar">
+
+                        <div class="terms-toolbar-title">
+                            Terms & Conditions Document
+                        </div>
+
+                        <div class="pdf-actions">
+
+                            <a
+                                id="openPdf"
+                                class="pdf-action"
+                                href="#"
+                                target="_blank"
+                            >
+                                Open PDF
+                            </a>
+
+                            <a
+                                id="downloadPdf"
+                                class="pdf-action"
+                                href="#"
+                                download
+                            >
+                                Download PDF
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pdf-wrapper">
+
+                        <div
+                            id="pdfLoading"
+                            class="pdf-loading"
+                        >
+                            Loading PDF...
+                        </div>
+
+                        <iframe
+                            id="termsPdf"
+                            title="Terms & Conditions PDF"
+                            style="display:none;"
+                        ></iframe>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ACTIONS -->
+
+                <section class="action-section">
+
+                    <div class="action-note">
+                        By clicking <strong>Accept Terms</strong>,
+                        you confirm that you have reviewed and agree
+                        to the Terms & Conditions provided by
+                        Vone8 Infotech.
+                    </div>
+
+
+                    <div class="actions">
+
+                        <button
+                            id="acceptBtn"
+                            class="btn btn-accept"
+                            type="button"
+                        >
+                            Accept Terms
+                        </button>
+
+                        <button
+                            id="rejectBtn"
+                            class="btn btn-reject"
+                            type="button"
+                        >
+                            Reject Terms
+                        </button>
+
+                    </div>
+
+
+                    <!-- REJECTION BOX -->
+
+                    <div
+                        id="rejectBox"
+                        class="reject-box"
+                    >
+
+                        <label for="rejectReason">
+                            Reason for rejecting the Terms *
+                        </label>
+
+                        <textarea
+                            id="rejectReason"
+                            placeholder="Please provide the reason for rejection..."
+                        ></textarea>
+
+
+                        <div class="reject-actions">
+
+                            <button
+                                id="cancelRejectBtn"
+                                type="button"
+                                class="btn btn-cancel"
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                id="confirmRejectBtn"
+                                type="button"
+                                class="btn btn-confirm-reject"
+                            >
+                                Confirm Rejection
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- SUCCESS -->
+
+            <div
+                id="successState"
+                class="result success"
+            >
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+                <h3 id="successTitle">
+                    Terms Accepted
+                </h3>
+
+                <p id="successMessage">
+                    Your Terms & Conditions have been accepted successfully.
+                    Your supplier onboarding process has been completed.
+                </p>
+
+            </div>
+
+
+            <!-- ERROR RESULT -->
+
+            <div
+                id="errorState"
+                class="result error"
+            >
+
+                <div class="result-icon">
+                    !
+                </div>
+
+                <h3>
+                    Unable to Complete
+                </h3>
+
+                <p id="errorStateMessage">
+                    This Terms & Conditions link is no longer active.
+                </p>
+
+            </div>
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            © 2026
+            <strong>Vone8 Infotech</strong>.
+            All rights reserved.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /*
+    ============================================================
+    SUPPLIER TERMS PAGE
+    ============================================================
+    URL:
+
+    /supplier-terms?token=xxxxxxxx
+
+    APIs:
+
+    GET:
+    /api/method/vendor_portal.api.get_supplier_terms
+
+    POST:
+    /api/method/vendor_portal.api.supplier_terms
+    ============================================================
+    */
+
+
+    const params = new URLSearchParams(
+        window.location.search
+    );
+
+    const token = params.get("token");
+
+
+    const loadingState =
+        document.getElementById("loadingState");
+
+    const contentState =
+        document.getElementById("contentState");
+
+    const successState =
+        document.getElementById("successState");
+
+    const errorState =
+        document.getElementById("errorState");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+    const errorStateMessage =
+        document.getElementById("errorStateMessage");
+
+
+    const companyName =
+        document.getElementById("companyName");
+
+    const contactPerson =
+        document.getElementById("contactPerson");
+
+    const email =
+        document.getElementById("email");
+
+
+    const termsPdf =
+        document.getElementById("termsPdf");
+
+    const pdfLoading =
+        document.getElementById("pdfLoading");
+
+    const openPdf =
+        document.getElementById("openPdf");
+
+    const downloadPdf =
+        document.getElementById("downloadPdf");
+
+
+    const acceptBtn =
+        document.getElementById("acceptBtn");
+
+    const rejectBtn =
+        document.getElementById("rejectBtn");
+
+    const rejectBox =
+        document.getElementById("rejectBox");
+
+    const rejectReason =
+        document.getElementById("rejectReason");
+
+    const cancelRejectBtn =
+        document.getElementById("cancelRejectBtn");
+
+    const confirmRejectBtn =
+        document.getElementById("confirmRejectBtn");
+
+
+    /*
+    ============================================================
+    HELPERS
+    ============================================================
+    */
+
+    function showError(message) {
+
+        errorMessage.textContent =
+            message || "Something went wrong.";
+
+        errorMessage.classList.add("show");
+
+    }
+
+
+    function hideError() {
+
+        errorMessage.classList.remove("show");
+
+    }
+
+
+    function showLoading(show) {
+
+        loadingState.style.display =
+            show ? "flex" : "none";
+
+    }
+
+
+    function showContent() {
+
+        contentState.style.display =
+            "block";
+
+    }
+
+
+    function showSuccess(
+        title,
+        message
+    ) {
+
+        contentState.style.display =
+            "none";
+
+        loadingState.style.display =
+            "none";
+
+        errorState.style.display =
+            "none";
+
+        successState.classList.add("show");
+
+        document.getElementById(
+            "successTitle"
+        ).textContent =
+            title;
+
+        document.getElementById(
+            "successMessage"
+        ).textContent =
+            message;
+
+    }
+
+
+    function showFinalError(message) {
+
+        contentState.style.display =
+            "none";
+
+        loadingState.style.display =
+            "none";
+
+        successState.classList.remove(
+            "show"
+        );
+
+        errorState.classList.add(
+            "show"
+        );
+
+        errorStateMessage.textContent =
+            message;
+
+    }
+
+
+    /*
+    ============================================================
+    EXTRACT FRAPPE MESSAGE
+    ============================================================
+    */
+
+    function extractMessage(data) {
+
+        if (!data) {
+            return "Something went wrong.";
+        }
+
+        if (
+            data.message &&
+            typeof data.message === "string"
+        ) {
+            return data.message;
+        }
+
+        if (
+            data.message &&
+            data.message.message
+        ) {
+            return data.message.message;
+        }
+
+        if (
+            data._server_messages
+        ) {
+
+            try {
+
+                const messages =
+                    JSON.parse(
+                        data._server_messages
+                    );
+
+                if (
+                    messages.length &&
+                    messages[0].message
+                ) {
+                    return messages[0].message;
+                }
+
+            } catch (e) {}
+
+        }
+
+        return "Something went wrong.";
+
+    }
+
+
+    /*
+    ============================================================
+    LOAD TERMS
+    ============================================================
+    */
+
+    async function loadTerms() {
+
+        if (!token) {
+
+            showLoading(false);
+
+            showFinalError(
+                "This Terms & Conditions link is invalid because the security token is missing."
+            );
+
+            return;
+
+        }
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "/api/method/vendor_portal.api.get_supplier_terms?token="
+                    + encodeURIComponent(token),
+                    {
+                        method: "GET",
+                        credentials: "include",
+                        cache: "no-store"
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                !response.ok ||
+                !data.message ||
+                data.message.success === false
+            ) {
+
+                throw new Error(
+                    extractMessage(data)
+                );
+
+            }
+
+
+            const result =
+                data.message;
+
+
+            companyName.textContent =
+                result.company_name || "-";
+
+            contactPerson.textContent =
+                result.contact_person || "-";
+
+            email.textContent =
+                result.email || "-";
+
+
+            /*
+            ----------------------------------------------------
+            PDF
+            ----------------------------------------------------
+            */
+
+            if (!result.terms_pdf) {
+
+                throw new Error(
+                    "The Terms & Conditions PDF has not been uploaded."
+                );
+
+            }
+
+
+            let pdfUrl =
+                result.terms_pdf;
+
+
+            /*
+            If Frappe returns a relative URL,
+            convert it into a valid absolute path.
+            */
+
+            if (
+                pdfUrl.startsWith("/")
+            ) {
+
+                pdfUrl =
+                    window.location.origin
+                    + pdfUrl;
+
+            }
+
+
+            termsPdf.src =
+                pdfUrl;
+
+            openPdf.href =
+                pdfUrl;
+
+            downloadPdf.href =
+                pdfUrl;
+
+
+            termsPdf.onload =
+                function () {
+
+                    pdfLoading.style.display =
+                        "none";
+
+                    termsPdf.style.display =
+                        "block";
+
+                };
+
+
+            /*
+            ----------------------------------------------------
+            SHOW PAGE
+            ----------------------------------------------------
+            */
+
+            showLoading(false);
+
+            showContent();
+
+        } catch (error) {
+
+            console.error(
+                "Supplier Terms Error:",
+                error
+            );
+
+            showLoading(false);
+
+            showFinalError(
+                error.message ||
+                "Unable to load the Terms & Conditions."
+            );
+
+        }
+
+    }
+
+
+    /*
+    ============================================================
+    ACCEPT TERMS
+    ============================================================
+    */
+
+    acceptBtn.addEventListener(
+        "click",
+        async function () {
+
+            const confirmed =
+                window.confirm(
+                    "Are you sure you want to accept the Terms & Conditions?"
+                );
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            acceptBtn.disabled =
+                true;
+
+            rejectBtn.disabled =
+                true;
+
+            acceptBtn.textContent =
+                "Processing...";
+
+
+            try {
+
+                const formData =
+                    new URLSearchParams();
+
+                formData.append(
+                    "token",
+                    token
+                );
+
+                formData.append(
+                    "action",
+                    "accept"
+                );
+
+
+                const response =
+                    await fetch(
+                        "/api/method/vendor_portal.api.supplier_terms",
+                        {
+                            method: "POST",
+                            credentials: "include",
+                            headers: {
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded"
+                            },
+                            body:
+                                formData.toString()
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    !response.ok ||
+                    !data.message ||
+                    data.message.success === false
+                ) {
+
+                    throw new Error(
+                        extractMessage(data)
+                    );
+
+                }
+
+
+                showSuccess(
+                    "Terms Accepted",
+                    "Your Terms & Conditions have been accepted successfully. Your supplier onboarding process has been completed."
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Accept Terms Error:",
+                    error
+                );
+
+                showError(
+                    error.message ||
+                    "Unable to accept the Terms & Conditions."
+                );
+
+                acceptBtn.disabled =
+                    false;
+
+                rejectBtn.disabled =
+                    false;
+
+                acceptBtn.textContent =
+                    "Accept Terms";
+
+            }
+
+        }
+    );
+
+
+    /*
+    ============================================================
+    SHOW REJECT BOX
+    ============================================================
+    */
+
+    rejectBtn.addEventListener(
+        "click",
+        function () {
+
+            rejectBox.classList.add(
+                "show"
+            );
+
+            rejectReason.focus();
+
+        }
+    );
+
+
+    /*
+    ============================================================
+    CANCEL REJECTION
+    ============================================================
+    */
+
+    cancelRejectBtn.addEventListener(
+        "click",
+        function () {
+
+            rejectBox.classList.remove(
+                "show"
+            );
+
+            rejectReason.value =
+                "";
+
+        }
+    );
+
+
+    /*
+    ============================================================
+    CONFIRM REJECTION
+    ============================================================
+    */
+
+    confirmRejectBtn.addEventListener(
+        "click",
+        async function () {
+
+            const reason =
+                rejectReason.value.trim();
+
+
+            if (!reason) {
+
+                alert(
+                    "Please provide a reason for rejecting the Terms & Conditions."
+                );
+
+                rejectReason.focus();
+
+                return;
+
+            }
+
+
+            const confirmed =
+                window.confirm(
+                    "Are you sure you want to reject the Terms & Conditions?"
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            confirmRejectBtn.disabled =
+                true;
+
+            cancelRejectBtn.disabled =
+                true;
+
+            confirmRejectBtn.textContent =
+                "Processing...";
+
+
+            try {
+
+                const formData =
+                    new URLSearchParams();
+
+                formData.append(
+                    "token",
+                    token
+                );
+
+                formData.append(
+                    "action",
+                    "reject"
+                );
+
+                formData.append(
+                    "reason",
+                    reason
+                );
+
+
+                const response =
+                    await fetch(
+                        "/api/method/vendor_portal.api.supplier_terms",
+                        {
+                            method: "POST",
+                            credentials: "include",
+                            headers: {
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded"
+                            },
+                            body:
+                                formData.toString()
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    !response.ok ||
+                    !data.message ||
+                    data.message.success === false
+                ) {
+
+                    throw new Error(
+                        extractMessage(data)
+                    );
+
+                }
+
+
+                showSuccess(
+                    "Terms Rejected",
+                    "Your rejection has been recorded successfully. The supplier onboarding team will review your response and contact you regarding the next steps."
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Reject Terms Error:",
+                    error
+                );
+
+                showError(
+                    error.message ||
+                    "Unable to reject the Terms & Conditions."
+                );
+
+                confirmRejectBtn.disabled =
+                    false;
+
+                cancelRejectBtn.disabled =
+                    false;
+
+                confirmRejectBtn.textContent =
+                    "Confirm Rejection";
+
+            }
+
+        }
+    );
+
+
+    /*
+    ============================================================
+    START
+    ============================================================
+    */
+
+    loadTerms();
+
+</script>
+
+</body>
+</html>

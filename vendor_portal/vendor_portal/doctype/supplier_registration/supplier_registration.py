@@ -1,19 +1,141 @@
 import frappe
 from frappe.model.document import Document
+from frappe.utils import get_url, now_datetime
 
 
 class SupplierRegistration(Document):
 
     def on_update(self):
-        # Only execute after workflow reaches Supplier Created
-        if self.workflow_state != "Supplier Created":
+        old_doc = self.get_doc_before_save()
+        old_state = old_doc.workflow_state if old_doc else None
+        current_state = self.workflow_state
+
+        # FINAL STAGE ONLY: create actual Supplier records.
+        # Nothing is created before Supplier Created.
+        if current_state == "Supplier Created":
+            if self.supplier:
+                return
+
+            self.create_supplier_records()
             return
 
-        # Prevent duplicate processing
-        if self.supplier:
-            return
+        # Send the terms email exactly when the workflow enters
+        # Terms Pending. This is intentionally before Supplier Created.
+        if current_state == "Terms Pending" and old_state != "Terms Pending":
+            self.send_terms_email()
 
-        self.create_supplier_records()
+    # =============================================================
+    # SEND TERMS EMAIL
+    # =============================================================
+
+    def send_terms_email(self):
+
+        if not self.email_id:
+            frappe.throw("Contact Email ID is required to send the terms.")
+
+        if not self.terms_pdf:
+            frappe.throw(
+                "Terms & Conditions PDF is required before sending the terms."
+            )
+
+        # New token every time terms are sent/resend.
+        token = frappe.generate_hash(length=40)
+
+        frappe.db.set_value(
+            "Supplier Registration",
+            self.name,
+            {
+                "terms_token": token,
+                "terms_email_sent": 1,
+                "terms_version": self.terms_version or "Current",
+            },
+            update_modified=False
+        )
+
+        terms_url = (
+            get_url("/supplier-terms")
+            + "?token="
+            + token
+        )
+
+        company_name = frappe.utils.escape_html(
+            self.name_of_the_company or "Supplier"
+        )
+        contact_name = frappe.utils.escape_html(
+            self.contact_person_name or "Supplier"
+        )
+        registration_name = frappe.utils.escape_html(
+            self.name
+        )
+
+        logo_url = get_url("/files/company%20logo.png")
+
+        email_subject = (
+            f"Vone8 Infotech | Terms & Conditions Review - {self.name_of_the_company}"
+        )
+
+        email_message = f"""
+        <div style="margin:0;padding:0;background:#f5f7fb;font-family:Arial,Helvetica,sans-serif;color:#172033;">
+          <div style="max-width:680px;margin:0 auto;padding:32px 18px;">
+
+            <div style="background:#ffffff;border:1px solid #e7ebf2;border-radius:18px;overflow:hidden;box-shadow:0 8px 30px rgba(15,23,42,.06);">
+
+              <div style="padding:28px 32px;border-bottom:1px solid #edf0f5;">
+                <img src="{logo_url}" alt="Vone8 Infotech" style="height:48px;width:auto;display:block;">
+              </div>
+
+              <div style="padding:34px 32px 12px;">
+                <div style="font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#2563eb;margin-bottom:12px;">Supplier Onboarding</div>
+                <h1 style="margin:0 0 14px;font-size:28px;line-height:1.25;color:#101828;">Terms &amp; Conditions Review</h1>
+                <p style="margin:0;color:#667085;font-size:15px;line-height:1.7;">
+                  Dear {contact_name},<br><br>
+                  Your supplier registration for <strong>{company_name}</strong> has reached the Terms &amp; Conditions review stage.
+                  Please review the attached PDF carefully and confirm your decision using the secure button below.
+                </p>
+              </div>
+
+              <div style="padding:20px 32px;">
+                <div style="background:#f8fafc;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;">
+                  <div style="font-size:12px;color:#667085;margin-bottom:5px;">Registration</div>
+                  <div style="font-size:15px;font-weight:700;color:#101828;">{registration_name}</div>
+                  <div style="font-size:13px;color:#667085;margin-top:5px;">Terms &amp; Conditions PDF is attached to this email.</div>
+                </div>
+              </div>
+
+              <div style="padding:8px 32px 34px;text-align:center;">
+                <a href="{terms_url}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-size:15px;font-weight:700;padding:14px 26px;border-radius:10px;">Review &amp; Accept Terms</a>
+                <p style="margin:16px 0 0;font-size:12px;line-height:1.6;color:#98a2b3;">
+                  This secure review link is unique to this supplier registration.
+                </p>
+              </div>
+
+              <div style="padding:20px 32px;background:#f8fafc;border-top:1px solid #edf0f5;">
+                <p style="margin:0;font-size:12px;line-height:1.7;color:#98a2b3;">
+                  Regards,<br>
+                  <strong style="color:#667085;">Vone8 Infotech</strong><br>
+                  Supplier Onboarding Team
+                </p>
+              </div>
+
+            </div>
+
+            <p style="text-align:center;margin:18px 0 0;font-size:11px;color:#98a2b3;">
+              © 2026 Vone8 Infotech. All rights reserved.
+            </p>
+          </div>
+        </div>
+        """
+
+        frappe.sendmail(
+            recipients=[self.email_id],
+            subject=email_subject,
+            message=email_message,
+            now=True,
+            reference_doctype="Supplier Registration",
+            reference_name=self.name
+        )
+
+        frappe.db.commit()
 
     def create_supplier_records(self):
 
