@@ -68,10 +68,10 @@ class SupplierRegistration(Document):
             self.name
         )
 
-        logo_url = get_url("/files/company%20logo.png")
+        logo_url = get_url("/files/Screenshot 2026-09-29 114733.png")
 
         email_subject = (
-            f"Vone8 Infotech | Terms & Conditions Review - {self.name_of_the_company}"
+            f"Wercatalyst Ventures Pvt Ltd. | Terms & Conditions Review - {self.name_of_the_company}"
         )
 
         email_message = f"""
@@ -81,7 +81,7 @@ class SupplierRegistration(Document):
             <div style="background:#ffffff;border:1px solid #e7ebf2;border-radius:18px;overflow:hidden;box-shadow:0 8px 30px rgba(15,23,42,.06);">
 
               <div style="padding:28px 32px;border-bottom:1px solid #edf0f5;">
-                <img src="{logo_url}" alt="Vone8 Infotech" style="height:48px;width:auto;display:block;">
+                <img src="{logo_url}" alt="Wercatalyst Ventures Pvt Ltd." style="height:48px;width:auto;display:block;">
               </div>
 
               <div style="padding:34px 32px 12px;">
@@ -112,7 +112,7 @@ class SupplierRegistration(Document):
               <div style="padding:20px 32px;background:#f8fafc;border-top:1px solid #edf0f5;">
                 <p style="margin:0;font-size:12px;line-height:1.7;color:#98a2b3;">
                   Regards,<br>
-                  <strong style="color:#667085;">Vone8 Infotech</strong><br>
+                  <strong style="color:#667085;">Wercatalyst Ventures Pvt Ltd.</strong><br>
                   Supplier Onboarding Team
                 </p>
               </div>
@@ -120,7 +120,7 @@ class SupplierRegistration(Document):
             </div>
 
             <p style="text-align:center;margin:18px 0 0;font-size:11px;color:#98a2b3;">
-              © 2026 Vone8 Infotech. All rights reserved.
+              © 2026 Wercatalyst Ventures Pvt Ltd.. All rights reserved.
             </p>
           </div>
         </div>

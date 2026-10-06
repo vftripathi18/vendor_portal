@@ -7,7 +7,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Supplier Terms & Conditions | Vone8 Infotech</title>
+    <title>Supplier Terms & Conditions | Wercatalyst Ventures Pvt Ltd.</title>
 
     <style>
         * {
@@ -608,9 +608,7 @@
 
     <div class="container">
 
-        <!-- =================================================
-             HEADER
-        ================================================== -->
+        <!-- HEADER -->
 
         <header class="header">
 
@@ -618,11 +616,11 @@
 
                 <img
                     src="/files/company%20logo.png"
-                    alt="Vone8 Infotech"
+                    alt="Wercatalyst Ventures Pvt Ltd."
                 >
 
                 <div class="brand-text">
-                    <h1>Vone8 Infotech</h1>
+                    <h1>Wercatalyst Ventures Pvt Ltd.</h1>
                     <p>Supplier Onboarding</p>
                 </div>
 
@@ -636,9 +634,7 @@
         </header>
 
 
-        <!-- =================================================
-             MAIN CARD
-        ================================================== -->
+        <!-- MAIN CARD -->
 
         <main class="card">
 
@@ -805,10 +801,13 @@
                 <section class="action-section">
 
                     <div class="action-note">
-                        By clicking <strong>Accept Terms</strong>,
+
+                        By clicking
+                        <strong>Accept Terms</strong>,
                         you confirm that you have reviewed and agree
                         to the Terms & Conditions provided by
-                        Vone8 Infotech.
+                        Wercatalyst Ventures Pvt Ltd..
+
                     </div>
 
 
@@ -929,7 +928,7 @@
         <div class="footer">
 
             © 2026
-            <strong>Vone8 Infotech</strong>.
+            <strong>Wercatalyst Ventures Pvt Ltd.</strong>.
             All rights reserved.
 
         </div>
@@ -945,20 +944,7 @@
     ============================================================
     SUPPLIER TERMS PAGE
     ============================================================
-    URL:
-
-    /supplier-terms?token=xxxxxxxx
-
-    APIs:
-
-    GET:
-    /api/method/vendor_portal.api.get_supplier_terms
-
-    POST:
-    /api/method/vendor_portal.api.supplier_terms
-    ============================================================
     */
-
 
     const params = new URLSearchParams(
         window.location.search
@@ -1081,6 +1067,8 @@
         errorState.style.display =
             "none";
 
+        errorMessage.classList.remove("show");
+
         successState.classList.add("show");
 
         document.getElementById(
@@ -1092,6 +1080,11 @@
             "successMessage"
         ).textContent =
             message;
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
     }
 
@@ -1159,7 +1152,9 @@
                     messages.length &&
                     messages[0].message
                 ) {
+
                     return messages[0].message;
+
                 }
 
             } catch (e) {}
@@ -1256,11 +1251,6 @@
                 result.terms_pdf;
 
 
-            /*
-            If Frappe returns a relative URL,
-            convert it into a valid absolute path.
-            */
-
             if (
                 pdfUrl.startsWith("/")
             ) {
@@ -1294,15 +1284,10 @@
                 };
 
 
-            /*
-            ----------------------------------------------------
-            SHOW PAGE
-            ----------------------------------------------------
-            */
-
             showLoading(false);
 
             showContent();
+
 
         } catch (error) {
 
@@ -1342,6 +1327,8 @@
                 return;
             }
 
+
+            hideError();
 
             acceptBtn.disabled =
                 true;
@@ -1389,22 +1376,60 @@
                     await response.json();
 
 
+                console.log(
+                    "Accept Terms API Response:",
+                    data
+                );
+
+                console.log("HTTP Status:", response.status);
+                console.log("HTTP OK:", response.ok);
+                console.log("Message:", data.message);
+                console.log("Full Response JSON:", JSON.stringify(data, null, 2));
+
+                /*
+                ====================================================
+                IMPORTANT FIX
+
+                Frappe can return HTTP 417 even when the server
+                has successfully processed the request.
+
+                Therefore we check the actual Frappe message first.
+                ====================================================
+                */
+
+                const result =
+                    data.message;
+
+
                 if (
-                    !response.ok ||
-                    !data.message ||
-                    data.message.success === false
+                    result &&
+                    result.success === true
                 ) {
 
-                    throw new Error(
-                        extractMessage(data)
+                    console.log(
+                        "Terms accepted successfully."
                     );
+
+
+                    showSuccess(
+                        "Terms Accepted",
+                        "Thank you for accepting the Terms & Conditions. Your response has been recorded successfully."
+                    );
+
+
+                    return;
 
                 }
 
 
-                showSuccess(
-                    "Terms Accepted",
-                    "Your Terms & Conditions have been accepted successfully. Your supplier onboarding process has been completed."
+                /*
+                ----------------------------------------------------
+                REAL ERROR
+                ----------------------------------------------------
+                */
+
+                throw new Error(
+                    extractMessage(data)
                 );
 
 
@@ -1415,10 +1440,12 @@
                     error
                 );
 
+
                 showError(
                     error.message ||
                     "Unable to accept the Terms & Conditions."
                 );
+
 
                 acceptBtn.disabled =
                     false;
@@ -1508,7 +1535,6 @@
                     "Are you sure you want to reject the Terms & Conditions?"
                 );
 
-
             if (!confirmed) {
                 return;
             }
@@ -1565,22 +1591,33 @@
                     await response.json();
 
 
+                console.log(
+                    "Reject Terms API Response:",
+                    data
+                );
+
+
+                const result =
+                    data.message;
+
+
                 if (
-                    !response.ok ||
-                    !data.message ||
-                    data.message.success === false
+                    result &&
+                    result.success === true
                 ) {
 
-                    throw new Error(
-                        extractMessage(data)
+                    showSuccess(
+                        "Terms Rejected",
+                        "Your rejection has been recorded successfully. The supplier onboarding team will review your response and contact you regarding the next steps."
                     );
+
+                    return;
 
                 }
 
 
-                showSuccess(
-                    "Terms Rejected",
-                    "Your rejection has been recorded successfully. The supplier onboarding team will review your response and contact you regarding the next steps."
+                throw new Error(
+                    extractMessage(data)
                 );
 
 
@@ -1591,10 +1628,12 @@
                     error
                 );
 
+
                 showError(
                     error.message ||
                     "Unable to reject the Terms & Conditions."
                 );
+
 
                 confirmRejectBtn.disabled =
                     false;

@@ -4,7 +4,7 @@ from frappe.utils import add_days, getdate, today, now_datetime
 
 
 # ============================================================
-# CONSTANTS / SMALL HELPERS
+# CONSTANTS / SMALL HELPERS  
 # ============================================================
 
 DUMMY_BILL = "Saree Dummy Bill"
