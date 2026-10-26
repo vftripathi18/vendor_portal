@@ -339,7 +339,7 @@ class SupplierRegistration(Document):
 
         # =========================================================
         # 9. UPDATE SUPPLIER REGISTRATION
-        # =========================================================
+        # ================================= part========================
 
         update_values = {
             "supplier": supplier.name,
