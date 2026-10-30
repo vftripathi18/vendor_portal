@@ -6,7 +6,7 @@ class SupplierRegistration(Document):
     """One form-filler User can own multiple separate Supplier registrations."""
 
     def on_update(self):
-        # Terms workflow/email functionality has been removed.
+        # Terms workflow/email functionality has been removed. okyyyyyyyy
         if self.workflow_state != "Supplier Created" or self.supplier:
             return
         self.create_supplier_records()
